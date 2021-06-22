@@ -19,8 +19,13 @@ const testData:ColumnProps[] = [
   {
     id: 2,
     title: 'test2',
-    description: '描述文本',
+    description: '描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本',
     avatar: 'http://sc.adminbuy.cn/uploads/allimg/210326/1-210326134G20-L.png'
+  },
+  {
+    id: 3,
+    title: 'test3',
+    description: '描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本'
   }
 ]
 
