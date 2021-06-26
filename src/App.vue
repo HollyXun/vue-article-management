@@ -31,7 +31,7 @@ const ColumnListData:ColumnProps[] = [
   }
 ]
 const currentUserData: UserProps = {
-  isLogin: false,
+  isLogin: true,
   name: '你微笑时好美'
 }
 
