@@ -4,9 +4,7 @@
       {{ title }}
     </a>
     <ul class="dropdown-menu" :style="dropdownMenu" v-if="isOpen">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
+      <slot></slot>
     </ul>
   </div>
 </template>
