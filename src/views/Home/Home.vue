@@ -1,5 +1,5 @@
 <template>
-  <div class="container" id="app">
+  <div class="container">
     <global-header :user="currentUser"></global-header>
     <column-list :list="list"></column-list>
   </div>
@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ColumnList, { ColumnProps } from '@/components/ColumnList.vue'
 import GlobalHeader, { UserProps } from '@/components/GlobalHeader.vue'
 
-const ColumnListData:ColumnProps[] = [
+const ColumnListData: ColumnProps[] = [
   {
     id: 1,
     title: 'test1专栏',
