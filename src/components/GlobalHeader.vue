@@ -9,9 +9,9 @@
       <ul v-else class="list-inline mb-0">
         <li class="list-inline-item">
           <dropdown :title="`你好，${user.name}`">
-            <dropdown-item disabled><a class="dropdown-item" href="#">Action</a></dropdown-item>
-            <dropdown-item><a class="dropdown-item" href="#">Action</a></dropdown-item>
-            <dropdown-item><a class="dropdown-item" href="#">Action</a></dropdown-item>
+            <dropdown-item><a class="dropdown-item" href="#">登录</a></dropdown-item>
+            <dropdown-item><a class="dropdown-item" href="#">注册</a></dropdown-item>
+            <dropdown-item><a class="dropdown-item" href="#">我的文章</a></dropdown-item>
           </dropdown>
         </li>
       </ul>
