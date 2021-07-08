@@ -1,9 +1,9 @@
 <template>
-  <div class="dropdown" ref="dropdownRef">
-    <a href="#" class="btn btn-outline-light my-2 dropdown-toggle" @click.prevent="isToggleOpen">
+  <div ref="dropdownRef" class="dropdown">
+    <a class="btn btn-outline-light my-2 dropdown-toggle" href="#" @click.prevent="isToggleOpen">
       {{ title }}
     </a>
-    <ul class="dropdown-menu" :style="dropdownMenu" v-if="isOpen">
+    <ul v-if="isOpen" :style="dropdownMenu" class="dropdown-menu">
       <slot></slot>
     </ul>
   </div>

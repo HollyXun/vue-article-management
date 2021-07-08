@@ -2,27 +2,27 @@
   <form>
     <div class="mb-3">
       <label class="form-label">邮箱地址</label>
-      <validate-input :rules="emailRules" v-model="emailValue"/>
-      {{emailValue}}
+      <validate-input v-model="emailValue" :rules="emailRules"/>
+      {{ emailValue }}
     </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">邮箱地址</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-             v-model="emailRef.value"
+      <label class="form-label" for="exampleInputEmail1">邮箱地址</label>
+      <input id="exampleInputEmail1" v-model="emailRef.value" aria-describedby="emailHelp" class="form-control"
+             type="email"
              @blur="validateEmail">
-      <div id="emailHelp" class="form-text"
-           v-if="emailRef.error">{{ emailRef.message }}
+      <div v-if="emailRef.error" id="emailHelp"
+           class="form-text">{{ emailRef.message }}
       </div>
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">密码</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label class="form-label" for="exampleInputPassword1">密码</label>
+      <input id="exampleInputPassword1" class="form-control" type="password">
     </div>
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input id="exampleCheck1" class="form-check-input" type="checkbox">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary">提交</button>
+    <button class="btn btn-primary" type="submit">提交</button>
   </form>
 </template>
 

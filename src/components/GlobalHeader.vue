@@ -3,8 +3,8 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">我的个人专栏</a>
       <ul v-if="!user.isLogin" class="list-inline mb-0">
-        <li class="list-inline-item"><a href="#" class="btn btn-outline-light my-2">登陆</a></li>
-        <li class="list-inline-item"><a href="#" class="btn btn-outline-light my-2">注册</a></li>
+        <li class="list-inline-item"><a class="btn btn-outline-light my-2" href="#">登陆</a></li>
+        <li class="list-inline-item"><a class="btn btn-outline-light my-2" href="#">注册</a></li>
       </ul>
       <ul v-else class="list-inline mb-0">
         <li class="list-inline-item">
