@@ -6,7 +6,9 @@ export const useClickOutside = (elementRef: Ref<null | HTMLElement>) => {
     if (!elementRef.value) {
       return
     }
-    if (!elementRef.value.contains(e.target as HTMLElement)) {
+    if (elementRef.value.contains(e.target as HTMLElement)) {
+      isClickOutside.value = false
+    } else {
       isClickOutside.value = true
     }
   }
