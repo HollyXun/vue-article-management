@@ -2,14 +2,15 @@
   <div class="validate-input-container mb-3">
     <input type="text" class="form-control"
            :class="{'is-invalid': inputRef.error}"
-           v-model="inputRef.value"
+           :value="inputRef.value"
+           @input="updateValue"
            @blur="validateInput">
-    <span v-if="inputRef.error" class="invalid-feedback">{{inputRef.message}}</span>
+    <span v-if="inputRef.error" class="invalid-feedback">{{ inputRef.message }}</span>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, reactive } from 'vue'
+import { defineComponent, PropType, reactive, ref } from 'vue'
 
 const emailReg = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
@@ -22,17 +23,23 @@ export type RulesProp = RuleProp[]
 export default defineComponent({
   name: 'ValidateInput',
   props: {
-    rules: Array as PropType<RulesProp>
+    rules: Array as PropType<RulesProp>,
+    modelValue: String
   },
-  setup (props) {
+  setup (props, context) {
     const inputRef = reactive({
-      value: '',
+      value: props.modelValue || '',
       error: false,
       message: ''
     })
+    const updateValue = (e: KeyboardEvent) => {
+      const targetValue = (e.target as HTMLInputElement).value
+      inputRef.value = targetValue
+      context.emit('update:modelValue', targetValue)
+    }
     const validateInput = () => {
       if (props.rules) {
-        const allPassed:boolean = props.rules.every(rule => {
+        const allPassed: boolean = props.rules.every(rule => {
           let passed = true
           inputRef.message = rule.message
           switch (rule.type) {
@@ -52,7 +59,8 @@ export default defineComponent({
     }
     return {
       inputRef,
-      validateInput
+      validateInput,
+      updateValue
     }
   }
 })
