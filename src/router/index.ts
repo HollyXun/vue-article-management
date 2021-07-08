@@ -15,7 +15,7 @@ const router = createRouter({
     {
       path: '/Register',
       name: 'Register',
-      component: () => import('@/views/LogInAndRegister.vue')
+      component: () => import('@/views/Login/LogInAndRegister.vue')
     },
     {
       path: '/:pathMatch(.*)*',

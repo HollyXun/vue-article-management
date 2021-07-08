@@ -1,0 +1,63 @@
+<template>
+  <div class="validate-input-container mb-3">
+    <input type="text" class="form-control"
+           :class="{'is-invalid': inputRef.error}"
+           v-model="inputRef.value"
+           @blur="validateInput">
+    <span v-if="inputRef.error" class="invalid-feedback">{{inputRef.message}}</span>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, PropType, reactive } from 'vue'
+
+const emailReg = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
+interface RuleProp {
+  type: 'required' | 'email'
+  message: string
+}
+
+export type RulesProp = RuleProp[]
+export default defineComponent({
+  name: 'ValidateInput',
+  props: {
+    rules: Array as PropType<RulesProp>
+  },
+  setup (props) {
+    const inputRef = reactive({
+      value: '',
+      error: false,
+      message: ''
+    })
+    const validateInput = () => {
+      if (props.rules) {
+        const allPassed:boolean = props.rules.every(rule => {
+          let passed = true
+          inputRef.message = rule.message
+          switch (rule.type) {
+            case 'required':
+              passed = (inputRef.value.trim() !== '')
+              break
+            case 'email':
+              passed = emailReg.test(inputRef.value)
+              break
+            default:
+              break
+          }
+          return passed
+        })
+        inputRef.error = !allPassed
+      }
+    }
+    return {
+      inputRef,
+      validateInput
+    }
+  }
+})
+</script>
+
+<style scoped>
+
+</style>
