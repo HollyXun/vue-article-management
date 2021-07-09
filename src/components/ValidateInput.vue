@@ -10,7 +10,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, reactive } from 'vue'
+import { defineComponent, PropType, reactive, onMounted } from 'vue'
+import { emitter } from './ValidateForm.vue'
 
 const emailReg = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
@@ -59,6 +60,9 @@ export default defineComponent({
         inputRef.error = !allPassed
       }
     }
+    onMounted(() => {
+      emitter.emit('form-item-created', inputRef.value)
+    })
     return {
       inputRef,
       validateInput,

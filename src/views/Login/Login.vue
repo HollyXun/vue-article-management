@@ -32,7 +32,7 @@ export default defineComponent({
     ValidateForm
   },
   setup () {
-    const emailValue = ref('')
+    const emailValue = ref('1123')
     const passwordValue = ref('')
     const emailRules: RulesProp = [
       {
