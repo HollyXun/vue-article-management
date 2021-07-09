@@ -1,29 +1,26 @@
-# article-management
+# 基于Vue 3以及TypeScript 专栏系统
 
-## Project setup
+## Yarn安装依赖
 
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 启动开发环境服务
 
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### 构建项目
 
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### 使用Lints和fixes修复文件
 
 ```
 yarn lint
 ```
 
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
