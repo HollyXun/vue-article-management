@@ -2,7 +2,7 @@
   <div class="validate-input-container mb-3">
     <input :class="{'is-invalid': inputRef.error}" :value="inputRef.value"
            class="form-control"
-           type="text"
+           v-bind="$attrs"
            @blur="validateInput"
            @input="updateValue">
     <span v-if="inputRef.error" class="invalid-feedback">{{ inputRef.message }}</span>
@@ -26,7 +26,9 @@ export default defineComponent({
     rules: Array as PropType<RulesProp>,
     modelValue: String
   },
+  inheritAttrs: false, // 禁用Attribute继承
   setup (props, context) {
+    console.log(context.attrs)
     const inputRef = reactive({
       value: props.modelValue || '',
       error: false,
