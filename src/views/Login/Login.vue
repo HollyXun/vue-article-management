@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <validate-form @form-submit="onFormSubmit">
     <div class="mb-3">
       <label class="form-label">邮箱地址</label>
       <validate-input v-model="emailValue" :rules="emailRules" type="text" placeholder="请输入邮箱地址"/>
@@ -12,18 +12,22 @@
       <input id="exampleCheck1" class="form-check-input" type="checkbox">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button class="btn btn-primary" type="submit">提交</button>
-  </form>
+    <template #submit>
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </template>
+  </validate-form>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import ValidateInput, { RulesProp } from '@/components/ValidateInput.vue'
+import ValidateForm from '@/components/ValidateForm.vue'
 
 export default defineComponent({
   name: 'LogInAndRegister',
   components: {
-    ValidateInput
+    ValidateInput,
+    ValidateForm
   },
   setup () {
     const emailValue = ref('')
@@ -44,11 +48,15 @@ export default defineComponent({
         message: '密码不能为空'
       }
     ]
+    const onFormSubmit = (result: boolean) => {
+      console.log(result)
+    }
     return {
       emailValue,
       emailRules,
       passwordValue,
-      passwordRules
+      passwordRules,
+      onFormSubmit
     }
   }
 })
