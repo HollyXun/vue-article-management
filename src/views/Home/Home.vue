@@ -1,8 +1,6 @@
 <template>
-  <div class="container">
     <global-header :user="currentUser"></global-header>
     <column-list :list="list"></column-list>
-  </div>
 </template>
 
 <script lang="ts">

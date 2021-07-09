@@ -8,10 +8,12 @@
       <label class="form-label">密码</label>
       <validate-input v-model="passwordValue" :rules="passwordRules" type="password" placeholder="请输入密码"/>
     </div>
+    <!--
     <div class="mb-3 form-check">
       <input id="exampleCheck1" class="form-check-input" type="checkbox">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
+    -->
     <template #submit>
       <button type="submit" class="btn btn-danger">Submit</button>
     </template>
