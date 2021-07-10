@@ -1,12 +1,10 @@
 <template>
-    <global-header :user="currentUser"></global-header>
     <column-list :list="list"></column-list>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import ColumnList, { ColumnProps } from '@/components/ColumnList.vue'
-import GlobalHeader, { UserProps } from '@/components/GlobalHeader.vue'
 
 const ColumnListData: ColumnProps[] = [
   {
@@ -27,21 +25,15 @@ const ColumnListData: ColumnProps[] = [
     description: '描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本'
   }
 ]
-const currentUserData: UserProps = {
-  isLogin: true,
-  name: '你微笑时好美'
-}
 
 export default defineComponent({
   name: 'Home',
   components: {
-    ColumnList,
-    GlobalHeader
+    ColumnList
   },
   setup () {
     return {
-      list: ColumnListData,
-      currentUser: currentUserData
+      list: ColumnListData
     }
   }
 })
