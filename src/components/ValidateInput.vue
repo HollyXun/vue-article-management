@@ -29,7 +29,6 @@ export default defineComponent({
   },
   inheritAttrs: false, // 禁用Attribute继承
   setup (props, context) {
-    console.log(context.attrs)
     const inputRef = reactive({
       value: props.modelValue || '',
       error: false,
@@ -61,7 +60,7 @@ export default defineComponent({
       }
     }
     onMounted(() => {
-      emitter.emit('form-item-created', inputRef.value)
+      emitter.emit('form-item-created', validateInput)
     })
     return {
       inputRef,
