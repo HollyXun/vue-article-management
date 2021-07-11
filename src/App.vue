@@ -14,7 +14,7 @@ import GlobalFooter from '@/components/GlobalFooter.vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const currentUserData: UserProps = {
-  isLogin: true,
+  isLogin: false,
   name: '你微笑时好美'
 }
 export default defineComponent({
