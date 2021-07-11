@@ -6,7 +6,7 @@
           <img :alt='column.title' :src='column.avatar' class="rounded-circle border border-light w-25 my-3">
           <h5 class="card-title">{{ column.title }}</h5>
           <p class="card-text text-start">{{ column.description }}</p>
-          <a class="btn btn-outline-primary" href="#">进入专栏</a>
+          <span class="btn btn-outline-primary" @click="jumpHandle(column.id)">进入专栏</span>
         </div>
       </div>
     </div>
@@ -15,6 +15,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
+import { useRouter } from 'vue-router'
 
 export interface ColumnProps {
   id: number,
@@ -36,6 +37,7 @@ export default defineComponent({
     }
   },
   setup (props) {
+    const router = useRouter()
     const columnList = computed(() => {
       // 使用可选链?来避免props.list为undefined的异常情况
       return props.list?.map(column => {
@@ -45,8 +47,17 @@ export default defineComponent({
         return column
       })
     })
+    const jumpHandle = (id: any) => {
+      router.push({
+        name: 'ColumnDetail',
+        params: {
+          id: id
+        }
+      })
+    }
     return {
-      columnList
+      columnList,
+      jumpHandle
     }
   }
 })

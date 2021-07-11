@@ -24,6 +24,7 @@
 import { defineComponent, ref } from 'vue'
 import ValidateInput, { RulesProp } from '@/components/ValidateInput.vue'
 import ValidateForm from '@/components/ValidateForm.vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'LogInAndRegister',
@@ -34,6 +35,7 @@ export default defineComponent({
   setup () {
     const emailValue = ref('')
     const passwordValue = ref('')
+    const router = useRouter()
     const emailRules: RulesProp = [
       {
         type: 'required',
@@ -52,6 +54,11 @@ export default defineComponent({
     ]
     const onFormSubmit = (result: boolean) => {
       console.log(result)
+      if (result) {
+        router.push({
+          path: '/home'
+        })
+      }
     }
     return {
       emailValue,

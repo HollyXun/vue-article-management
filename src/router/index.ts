@@ -18,6 +18,11 @@ const router = createRouter({
       component: () => import('@/views/Login/Login.vue')
     },
     {
+      path: '/details/:id',
+      name: 'ColumnDetail',
+      component: () => import('@/views/Details/ColumnDetail.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: () => import('@/views/Error/404.vue')
