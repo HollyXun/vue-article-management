@@ -3,8 +3,12 @@
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/home">我的个人专栏</router-link>
       <ul v-if="!user.isLogin" class="list-inline mb-0">
-        <li class="list-inline-item"><router-link class="btn btn-outline-light my-2" to="/register">登陆</router-link></li>
-        <li class="list-inline-item"><router-link class="btn btn-outline-light my-2" to="/register">注册</router-link></li>
+        <li class="list-inline-item">
+          <router-link class="btn btn-outline-light my-2" to="/register">登陆</router-link>
+        </li>
+        <li class="list-inline-item">
+          <router-link class="btn btn-outline-light my-2" to="/register">注册</router-link>
+        </li>
       </ul>
       <ul v-else class="list-inline mb-0">
         <li class="list-inline-item">

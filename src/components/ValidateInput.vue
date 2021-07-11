@@ -1,8 +1,8 @@
 <template>
   <div class="validate-input-container mb-3">
-    <input :class="{'is-invalid': inputRef.error}" :value="inputRef.value"
+    <input v-bind="$attrs" :class="{'is-invalid': inputRef.error}"
+           :value="inputRef.value"
            class="form-control"
-           v-bind="$attrs"
            @blur="validateInput"
            @input="updateValue">
     <span v-if="inputRef.error" class="invalid-feedback">{{ inputRef.message }}</span>
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, reactive, onMounted } from 'vue'
+import { defineComponent, onMounted, PropType, reactive } from 'vue'
 import { emitter } from './ValidateForm.vue'
 
 const emailReg = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/

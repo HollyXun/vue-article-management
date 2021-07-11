@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <global-header :user="currentUser" />
+    <global-header :user="currentUser"/>
     <router-view></router-view>
     <global-footer/>
   </div>

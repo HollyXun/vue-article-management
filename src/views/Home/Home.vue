@@ -1,5 +1,5 @@
 <template>
-    <column-list :list="list"></column-list>
+  <column-list :list="list"></column-list>
 </template>
 
 <script lang="ts">

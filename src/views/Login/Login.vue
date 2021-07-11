@@ -2,11 +2,11 @@
   <validate-form @form-submit="onFormSubmit">
     <div class="mb-3">
       <label class="form-label">邮箱地址</label>
-      <validate-input v-model="emailValue" :rules="emailRules" type="text" placeholder="请输入邮箱地址"/>
+      <validate-input v-model="emailValue" :rules="emailRules" placeholder="请输入邮箱地址" type="text"/>
     </div>
     <div class="mb-3">
       <label class="form-label">密码</label>
-      <validate-input v-model="passwordValue" :rules="passwordRules" type="password" placeholder="请输入密码"/>
+      <validate-input v-model="passwordValue" :rules="passwordRules" placeholder="请输入密码" type="password"/>
     </div>
     <!--
     <div class="mb-3 form-check">
@@ -15,7 +15,7 @@
     </div>
     -->
     <template #submit>
-      <button type="submit" class="btn btn-danger">Submit</button>
+      <button class="btn btn-danger" type="submit">Submit</button>
     </template>
   </validate-form>
 </template>
